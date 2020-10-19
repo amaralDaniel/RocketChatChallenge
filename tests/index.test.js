@@ -2,14 +2,19 @@
 
 const analyzeTask = require('../index'); 
 
-test("Test example input/ouput", () => {
+
+test("analyzeTask empty input", () => {
     expect(analyzeTask('')).toBe('');
 });
 
-test("Test example input/ouput", () => {
-    expect(analyzeTask('2\n1 PT\n2 US\n\n3\n1 1 10\n2 1 5\n3 2 10')).toBe('1 7.5\n2 10\nPT 7.5\nUS 10');
+var analyzeTaskExampleMockInput = '2\n1 PT\n2 US\n3\n1 1 10\n2 1 5\n3 2 10';
+var analyzeTaskExampleMockOutput = '1 7.50\n2 10.00\nPT 7.50\nUS 10.00';
+test("analyzeTask example input", () => {
+    expect(analyzeTask(analyzeTaskExampleMockInput)).toBe(analyzeTaskExampleMockOutput);
 });
 
-test("Test example input/ouput", () => {
-    expect(analyzeTask('2\n1 PT\n2 US\n\n3\n1 1 10\n2 1 5\n3 2 10')).toBe('1 7.5\n2 10\nPT 7.5\nUS 10');
+analyzeTaskExampleMockInput = '1\n1 FR\n9\n1 1 30\n1 1 5\n1 1 15\n1 1 25\n1 1 100\n1 1 80\n1 1 2\n1 1 0\n1 1 1';
+analyzeTaskExampleMockOutput = '1 28.67\nFR 28.67';
+test("analyzeTask single user input", () => {
+    expect(analyzeTask(analyzeTaskExampleMockInput)).toBe(analyzeTaskExampleMockOutput);
 });
