@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-const analyzeTask = require('../index'); 
+const {analyzeTask} = require('../index'); 
 
 
 test("analyzeTask empty input", () => {
