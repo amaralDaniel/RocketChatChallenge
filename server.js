@@ -13,6 +13,10 @@ const server = http.createServer((req, res) => {
     
     const {pathname} = url.parse(req.url);
 
+    if (pathname == '/') {
+        res.end("Rocket.Chat Challenge is up on Vercel!");
+    }
+
     if (pathname !== '/analyze/tasks') {
         handleError(404, res);
     } else {
