@@ -8,7 +8,7 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-  
+    /*
     if (req.method !== 'POST') handleError(405, res);
     
     const {pathname} = url.parse(req.url);
@@ -31,6 +31,11 @@ const server = http.createServer((req, res) => {
             
             res.end(analyzeTask(body));
         });
+    }*/
+
+    const {pathname} = url.parse(req.url);
+    if (pathname == '/') {
+        res.end("Rocket.Chat Challenge is up on Vercel!");
     }
 });
 
