@@ -8,18 +8,13 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-    /*
-    if (req.method !== 'POST') handleError(405, res);
     
     const {pathname} = url.parse(req.url);
-
     if (pathname == '/') {
         res.end("Rocket.Chat Challenge is up on Vercel!");
     }
 
-    if (pathname !== '/analyze/tasks') {
-        handleError(404, res);
-    } else {
+    if (pathname == '/analyze/tasks' && req.method == 'POST') {
         let body = [];
         //building the body
         req.on('data', (chunk) => {
@@ -31,12 +26,10 @@ const server = http.createServer((req, res) => {
             
             res.end(analyzeTask(body));
         });
-    }*/
-
-    const {pathname} = url.parse(req.url);
-    if (pathname == '/') {
-        res.end("Rocket.Chat Challenge is up on Vercel!");
+    } else {
+        handleError(404, res);
     }
+
 });
 
 var handleError = (statusCode, res) => {
