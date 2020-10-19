@@ -18,3 +18,10 @@ analyzeTaskExampleMockOutput = '1 28.67\nFR 28.67';
 test("analyzeTask single user input", () => {
     expect(analyzeTask(analyzeTaskExampleMockInput)).toBe(analyzeTaskExampleMockOutput);
 });
+
+var usersAndCountriesWithoutMentionMockInput = '2\n1 FR\n2 PT\n9\n1 1 30\n1 1 5\n1 1 15\n1 1 25\n1 1 100\n1 1 80\n1 1 2\n1 1 0\n1 1 1';
+var usersAndCountriesWithoutMentionMockOutput = '2 0.00\n1 28.67\nPT 0.00\nFR 28.67';
+test("users and countries w/o mention should be in the output", () => {
+    expect(analyzeTask(usersAndCountriesWithoutMentionMockInput)).toBe(usersAndCountriesWithoutMentionMockOutput);
+});
+
