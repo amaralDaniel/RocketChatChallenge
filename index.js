@@ -3,11 +3,12 @@
 var {avgTimeSpentByUser} = require("./helper");
 var {avgTimeSpentByCountry} = require("./helper");
 
+//var input = '2\n1 FR\n2 PT\n9\n1 1 30\n1 1 5\n1 1 15\n1 1 25\n1 1 100\n1 1 80\n1 1 2\n1 1 0\n1 1 1';
+
 var analyzeTask = (input) => {
   if (input == "") {
     return "";
   } else {
-    var users = {};
     var tasks = {};
     var countries = {};
     var output = "";
@@ -18,7 +19,19 @@ var analyzeTask = (input) => {
     for (i = 1; i < numberOfUsers + 1; i++) {
       var splitUserInfo = inputComponents[i].split(" ");
 
-      users[splitUserInfo[0]] = splitUserInfo[1];
+      if (!Object.prototype.hasOwnProperty.call(tasks, splitUserInfo[0])) {
+        tasks[splitUserInfo[0]] = {
+          totalTime: 0,
+          occurrences: 0,
+          countryCode: splitUserInfo[1]
+        };
+      }
+      if (!Object.prototype.hasOwnProperty.call(countries, splitUserInfo[1])) {
+        countries[splitUserInfo[1]] = {
+          totalTime: 0,
+          occurrences: 0,
+        };
+      }
     }
 
     i += 1;
@@ -35,7 +48,7 @@ var analyzeTask = (input) => {
         tasks[splitTaskInfo[1]].occurrences += 1;
       }
 
-      var countryCode = users[splitTaskInfo[1]];
+      var countryCode = tasks[splitTaskInfo[1]].countryCode;
 
       if (!Object.prototype.hasOwnProperty.call(countries, countryCode)) {
         countries[countryCode] = {
@@ -56,3 +69,4 @@ var analyzeTask = (input) => {
 };
 
 module.exports = {analyzeTask: analyzeTask};
+//console.log(analyzeTask(input));
