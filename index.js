@@ -1,9 +1,6 @@
-
 /* eslint-env node */
-var {avgTimeSpentByUser} = require("./helper");
-var {avgTimeSpentByCountry} = require("./helper");
-
-//var input = '2\n1 FR\n2 PT\n9\n1 1 30\n1 1 5\n1 1 15\n1 1 25\n1 1 100\n1 1 80\n1 1 2\n1 1 0\n1 1 1';
+var { avgTimeSpentByUser } = require("./helper");
+var { avgTimeSpentByCountry } = require("./helper");
 
 var analyzeTask = (input) => {
   if (input == "") {
@@ -23,7 +20,7 @@ var analyzeTask = (input) => {
         tasks[splitUserInfo[0]] = {
           totalTime: 0,
           occurrences: 0,
-          countryCode: splitUserInfo[1]
+          countryCode: splitUserInfo[1],
         };
       }
       if (!Object.prototype.hasOwnProperty.call(countries, splitUserInfo[1])) {
@@ -68,5 +65,4 @@ var analyzeTask = (input) => {
   }
 };
 
-module.exports = {analyzeTask: analyzeTask};
-//console.log(analyzeTask(input));
+module.exports = { analyzeTask: analyzeTask };
