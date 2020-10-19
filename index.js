@@ -55,4 +55,4 @@ var analyzeTask = (input) => {
   }
 };
 
-module.exports = analyzeTask;
+module.exports = {analyzeTask: analyzeTask};
