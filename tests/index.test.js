@@ -25,3 +25,15 @@ test("users and countries w/o mention should be in the output", () => {
     expect(analyzeTask(usersAndCountriesWithoutMentionMockInput)).toBe(usersAndCountriesWithoutMentionMockOutput);
 });
 
+var unmatchingNumberOfUsersMockInput = '3\n1 FR\n2 PT\n9\n1 1 30\n1 1 5\n1 1 15\n1 1 25\n1 1 100\n1 1 80\n1 1 2\n1 1 0\n1 1 1';
+var unmatchingNumberOfUsersMockOutput = 'Invalid input';
+test("Incorrect input for users", () => {
+    expect(analyzeTask(unmatchingNumberOfUsersMockInput)).toBe(unmatchingNumberOfUsersMockOutput);
+});
+
+var unmatchingNumberOfTasksMockInput = '2\n1 FR\n2 PT\n9\n1 1 30\n1 1 5 5\n1 1 15\n1 1 25 2\n1 1 100\n1 1 80\n1 1 2\n1 1 0\n1 1 1';
+var unmatchingNumberOfTasksMockOutput = 'Invalid input';
+test("Incorrect input for tasks", () => {
+    expect(analyzeTask(unmatchingNumberOfTasksMockInput)).toBe(unmatchingNumberOfTasksMockOutput);
+});
+
