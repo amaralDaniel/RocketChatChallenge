@@ -6,7 +6,17 @@ In the terminal with the location on the root folder, run:
     npm test
     
 ## CLI File importing 
-**TODO**
+In the terminal with the location on the root folder, run:
+
+    npm run-script file <file_name>
+
+The argument <file_name> should be a file with contents such as:
+
+![File content example](./assets/file_content.png "File content example")
+
+Example of running the script in the terminal:
+
+![Terminal execution of the file script](./assets/read_file.png "Terminal execution of the file script")
 
 
 ## API Endpoint
